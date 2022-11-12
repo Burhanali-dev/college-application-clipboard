@@ -9,11 +9,14 @@ module.exports = function (app, passport, db) {
   app.get('/form', function (req, res) {
     res.render('form.ejs');
   });
+  app.get('/updateForm', function (req, res) {
+    res.render('updateForm.ejs');
+  });
 
   // PROFILE SECTION =========================
   app.get('/profile', isLoggedIn, function (req, res) {
     db.collection('options').find(
-      // { 'user': req.user.local.email }
+       { user: req.user.local.email }
     ).toArray((err, result) => {
       if (err) return console.log(err)
       if (result[0]?.user == req.user.local.email) {
@@ -57,7 +60,8 @@ module.exports = function (app, passport, db) {
     res.redirect('/profile')
   })
 
-  app.put('/update', (req, res) => {
+  app.post('/update', (req, res) => {
+    console.log(req.body)
     db.collection('options')
       .updateOne({ name: req.body.name }, {
         $set: {
@@ -67,24 +71,25 @@ module.exports = function (app, passport, db) {
           compensation: req.body.compensation,
           classsize: req.body.classsize,
           program: req.body.program,
-          user: req.user.local.email 
+        //  user: req.user.local.email 
         }
       }, {
         sort: { _id: -1 },
         upsert: true
+      },  (err, result) => {
+        if (err) return console.log(err)
+        console.log('saved to database')
+
+        res.redirect('/profile')
       })
-    res.send(200)
+    
+   // res.send(200)
   })
 
   app.delete('/delete', (req, res) => {
+    console.log("ProfileName : ", req.body.userName)
     db.collection('options').findOneAndDelete({
-      name: req.body.name,
-      location: req.body.location,
-      tuiton: req.body.tuiton,
-      compensation: req.body.compensation,
-      classsize: req.body.classsize,
-      program: req.body.program,
-      user: req.user.local.email 
+       name : req.body.userName
     }, (err, result) => {
       if (err) return res.send(500, err)
       res.send('Message deleted!')

@@ -20,6 +20,7 @@
 
         <div class="page-header text-center">
             <h1> <i class="fa-solid fa-turkey"></i>
+                <a href="/form" class="logout">Add School</a>
                 <a href="/logout" class="logout">Logout</a>
         </div>
     </div>
@@ -28,29 +29,30 @@
   <div class="options-container">
 
     <% for(var i=0; i <options.length; i++) {%>
-   <div class="option">
+  
+        <div class="option">
         <p class="name" class="pt-3-half">
             <%= options[i].name %>
         </p>
 
-        <p oninput="updateE(this)" class="location" contenteditable="true">
+        <p class="location" contenteditable="true">
             <%= options[i].location %>
         </P>
-        <p oninput="updateE(this)" class="tuiton" contenteditable="true">
+        <p class="tuiton" contenteditable="true">
             <%= options[i].tuiton %>
         </p>
-        <p oninput="updateE(this)" class="compensation" contenteditable="true">
+        <p class="compensation" contenteditable="true">
             <%= options[i].compensation %>
         </p>
-        <p oninput="updateE(this)" class="classsizeass=" contenteditable="true">
+        <p class="classsizeass=" contenteditable="true">
             <%= options[i].classsize %>
         </p>
-        <p oninput="updateE(this)" class="program" contenteditable="true">
+        <p class="program" contenteditable="true">
             <%= options[i].program %>
         </p>
 
-
-        <button onclick=deleteE(this)>delete</button>
+        <button><a href="/updateForm"> Edit </a> </button>
+        <button onclick='deleteE("<%= options[i].name %>")' > Delete </button>
 
        </div>
         <% } %>
