@@ -1,12 +1,18 @@
 body{
   padding-top:80px;
   word-wrap:break-word;
-  background-color:lightgoldenrodyellow;
+  /* background-color:lightgoldenrodyellow;  */
+  background-image: url("school.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  
 }
-
 
 .container{
   text-align: center;
+  margin-bottom: 40px;
 }
 
 #logout{
@@ -14,13 +20,7 @@ body{
   bottom: 0;
   width: 100%;
 }
-body{
-  background-image: url("backround.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-}
+
 .options-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -30,10 +30,22 @@ body{
 .option{
   border: 1px solid lightgray;
   padding: 10px;
+  background-color: rgb(218, 215, 215);
 }
 .logout{
-  border: 1px solid skyblue;
+  border: 2px solid black;
   margin-right: 30px;
   padding: 10px;
   font-size: 24px;
+  background-color: rgb(218, 215, 215);
+  color: black;
+}
+form{
+  background-color: rgb(218, 215, 215);;
+}
+h3{
+  color: red;
+}
+a{
+  color: black;
 }
