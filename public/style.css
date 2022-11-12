@@ -21,4 +21,13 @@ body{
   background-attachment: fixed;
   background-position: center;
 }
-
+.options-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 10px;
+}
+.option{
+  border: 1px solid lightgray;
+  padding: 10px;
+}

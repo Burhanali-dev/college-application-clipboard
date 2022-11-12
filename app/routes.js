@@ -13,10 +13,11 @@ module.exports = function (app, passport, db) {
   // PROFILE SECTION =========================
   app.get('/profile', isLoggedIn, function (req, res) {
     db.collection('options').find(
-      { 'user': req.user.local.email }
+      // { 'user': req.user.local.email }
     ).toArray((err, result) => {
       if (err) return console.log(err)
       if (result[0]?.user == req.user.local.email) {
+        console.log(result)
         res.render('profile.ejs', {
           user: req.user,
           options: result
@@ -42,6 +43,7 @@ module.exports = function (app, passport, db) {
 
   app.post('/create', (req, res) => {
     const collection = db.collection('options')
+    console.log("Body :", req.body)
     collection.insertMany([{
       name: req.body.name,
       location: req.body.location,
@@ -76,7 +78,7 @@ module.exports = function (app, passport, db) {
 
   app.delete('/delete', (req, res) => {
     db.collection('options').findOneAndDelete({
-      meal: req.body.meal,
+      name: req.body.name,
       location: req.body.location,
       tuiton: req.body.tuiton,
       compensation: req.body.compensation,

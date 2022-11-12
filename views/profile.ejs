@@ -25,35 +25,36 @@
     </div>
 
 
+  <div class="options-container">
 
-    <% for(var i=0; i<options.length; i++) {%>
-
-        <p id="name" class="pt-3-half">
+    <% for(var i=0; i <options.length; i++) {%>
+   <div class="option">
+        <p class="name" class="pt-3-half">
             <%= options[i].name %>
         </p>
 
-        <p oninput="updateE(this)" id="location" contenteditable="true">
+        <p oninput="updateE(this)" class="location" contenteditable="true">
             <%= options[i].location %>
         </P>
-        <p oninput="updateE(this)" id="tuiton" contenteditable="true">
+        <p oninput="updateE(this)" class="tuiton" contenteditable="true">
             <%= options[i].tuiton %>
         </p>
-        <p oninput="updateE(this)" id="compensation" contenteditable="true">
+        <p oninput="updateE(this)" class="compensation" contenteditable="true">
             <%= options[i].compensation %>
         </p>
-        <p oninput="updateE(this)" id="classsizeass=" contenteditable="true">
+        <p oninput="updateE(this)" class="classsizeass=" contenteditable="true">
             <%= options[i].classsize %>
         </p>
-        <p oninput="updateE(this)" id="program" contenteditable="true">
+        <p oninput="updateE(this)" class="program" contenteditable="true">
             <%= options[i].program %>
         </p>
 
 
         <button onclick=deleteE(this)>delete</button>
 
-
+       </div>
         <% } %>
-
+  </div>
 
 
 
