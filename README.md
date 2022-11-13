@@ -1,4 +1,4 @@
-# college-application-clipboard
+# college-offer-decision-board
 
 
 ![Screenshot (15)](https://user-images.githubusercontent.com/113322000/201470014-f82590a9-fae2-45a0-8f15-8337f4603c35.png)
